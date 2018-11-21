@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatatableService } from './datatable.service';
 
 @Component({
   selector: 'app-datatable',
@@ -24,9 +25,13 @@ export class DatatableComponent implements OnInit {
     { field: 'descricao', header: 'Descrição' }
   ];
 
-  constructor() { }
+  constructor( private datatableService: DatatableService) { }
 
   ngOnInit() {
+  }
+
+  getData() {
+    // this.cars = this.datatableService.getProdutsbyLine(1);
   }
 
   paginate(event) {

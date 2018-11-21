@@ -1,9 +1,8 @@
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
-import { DatatableComponent } from './datatable/datatable.component';
+import { HttpClientModule } from '@angular/common/http';
 
 // primeng ...
 import { TableModule } from 'primeng/table';
@@ -11,6 +10,10 @@ import { PaginatorModule } from 'primeng/paginator';
 
 // font awesome
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
+
+// componentes internos
+import { DatatableComponent } from './datatable/datatable.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     TableModule, PaginatorModule,
     AngularFontAwesomeModule
   ],
