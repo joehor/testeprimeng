@@ -11,6 +11,7 @@ export class MainmenuComponent implements OnInit {
   constructor() { }
 
   items: MenuItem[];
+  search: string;
 
   ngOnInit() {
     this.items = [
@@ -37,6 +38,10 @@ export class MainmenuComponent implements OnInit {
           ]
       }
     ];
+  }
+
+  searchMenu() {
+      console.log(this.search);
   }
 
 }

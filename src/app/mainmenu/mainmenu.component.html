@@ -1,4 +1,4 @@
 <p-menubar [model]="items">
-  <input type="text" pInputText placeholder="Search">
+  <input type="text" pInputText [(ngModel)]="search" placeholder="Search" (keyup)="searchMenu()">
   <button pButton label="Logout" icon="fa fa-sign-out"></button>
 </p-menubar>

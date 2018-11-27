@@ -10,28 +10,39 @@ import { PaginatorModule } from 'primeng/paginator';
 import { SlideMenuModule } from 'primeng/slidemenu';
 import { MenubarModule } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
+import { InputTextModule } from 'primeng/inputtext';
+import { PasswordModule } from 'primeng/password';
 
 // font awesome
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
+// charts
+import { ChartModule } from 'primeng/chart';
 
 // componentes internos
 import { DatatableComponent } from './datatable/datatable.component';
 import { MainmenuComponent } from './mainmenu/mainmenu.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DatatableComponent,
-    MainmenuComponent
+    MainmenuComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    // primeng ...
     TableModule, PaginatorModule,
     SlideMenuModule, MenubarModule,
-    ButtonModule,
+    ButtonModule, InputTextModule, PasswordModule, CardModule,
+    // carts.js ...
+    ChartModule,
+    // fontawesame
     AngularFontAwesomeModule
   ],
   providers: [],
