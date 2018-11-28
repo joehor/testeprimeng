@@ -1,3 +1,4 @@
-.ui-button {
-    margin-left: 5px;
+
+.ui-menubar .ui-menuitem-text {
+  background-color: yellow;
 }

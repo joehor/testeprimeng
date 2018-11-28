@@ -1,7 +1,11 @@
-.p-footer {
+p-footer {
     text-align: center;
 }
 
-.ui-card-footer {
+p-card-footer {
     text-align: center;
+}
+
+p-card-content {
+  padding: 20px;
 }

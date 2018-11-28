@@ -1,25 +1,21 @@
-<p-card header="Área restrita" subheader="Subheader" [style]="{width: '360px'}" styleClass="ui-card-shadow">
+<p-card header="Área restrita" subheader="Subheader" [style]="{width: '350px'}" styleClass="ui-card-shadow">
   <p-header>
       <img src="assets/images/locked-padlock 128.png">
   </p-header>
 
   <div>Informe se usuário e senha para ingressar na área restrita</div>
 
-  <div>
-    <span class="first">
-      <label for="username">Usuário</label>
-      <input id="username" type="text" size="30" pInputText [(ngModel)]="username"/> 
-    </span>
-  </div>
+  <span>
+    <input id="username" type="text" size="10" pInputText [(ngModel)]="username"/>
+    <label for="username">Usuário</label>
+  </span>
 
-  <div>
-    <span class="second">
-      <label for="userpass">Senha</label>
-      <input id="userpass" type="password" pPassword  [(ngModel)]="userpass"/>
-    </span>
-  </div>
+  <span>
+    <input id="userpass" type="password" pPassword  [(ngModel)]="userpass"/>
+    <label for="userpass">Senha</label>
+  </span>
 
   <p-footer>
-      <button pButton type="button" label="Entrar" icon="pi pi-check" style="margin-right: .25em" (click)="onClickEnter()"></button>
+    <button pButton type="button" label="Entrar" icon="pi pi-check" style="margin-right: .25em" (click)="onClickEnter()"></button>
   </p-footer>
 </p-card>
