@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
+import { ReactiveFormsModule, FormsModule, FormBuilder, Validators } from '@angular/forms';
 
 // primeng ...
 import { TableModule } from 'primeng/table';
@@ -14,6 +15,7 @@ import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
+import { PanelModule } from 'primeng/panel';
 
 // font awesome
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
@@ -26,11 +28,17 @@ import { DatatableComponent } from './datatable/datatable.component';
 import { MainmenuComponent } from './mainmenu/mainmenu.component';
 import { LoginComponent } from './login/login.component';
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao-encontrada.component';
+import { HomeComponent } from './home/home.component';
+import { AuthService } from './auth.service';
+import { AuthGuard } from './auth.guard';
+import { RestrictAreaComponent } from './restrict-area/restrict-area.component';
 
 const routes: Routes = [
-  { path: 'datatable', component: DatatableComponent },
-  { path: 'mainmenu', component: MainmenuComponent },
+  { path: '', component: HomeComponent, pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'datatable', component: DatatableComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
+  { path: 'restrict', component: RestrictAreaComponent },
   { path: '**', component: PaginaNaoEncontradaComponent }
 ];
 
@@ -40,16 +48,20 @@ const routes: Routes = [
     DatatableComponent,
     MainmenuComponent,
     LoginComponent,
-    PaginaNaoEncontradaComponent
+    PaginaNaoEncontradaComponent,
+    HomeComponent,
+    RestrictAreaComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ReactiveFormsModule, FormsModule,
     // primeng ...
     TableModule, PaginatorModule,
     SlideMenuModule, MenubarModule,
     ButtonModule, InputTextModule, PasswordModule, CardModule,
+    PanelModule,
     // carts.js ...
     ChartModule,
     // fontawesame

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -7,16 +10,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  username: string;
-  userpass: string;
+  form;
 
-  constructor() { }
+  constructor(
+    private fb: FormBuilder,
+    private route: Router,
+    private auth: AuthService
+  ) {
+    this.form = fb.group({
+      username: ['', [Validators.required]],
+      userpass: ['', Validators.required]
+    });
+  }
 
   ngOnInit() {
   }
 
   onClickEnter() {
-    console.log('User: ' + this.username + ' ' + this.userpass );
+    console.log('onClickEnter:');
+    console.log('Form valid? ' + this.form.valid);
+    console.log('username: ' + this.form.username);
+    console.log('userpass: ' + this.form.userpass);
+    if (this.form.username && this.form.userpass) {
+      this.auth.sendToken(this.form.value.username);
+      this.route.navigate(['home']);
+    }
   }
 
 }

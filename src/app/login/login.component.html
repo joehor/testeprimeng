@@ -1,21 +1,23 @@
 <p-card header="Área restrita" subheader="Subheader" [style]="{width: '350px'}" styleClass="ui-card-shadow">
-  <p-header>
-      <img src="assets/images/locked-padlock 128.png">
-  </p-header>
+  <form [formGroup]="form" (submit)="onClickEnter()">
+    <p-header>
+        <img src="assets/images/locked-padlock 128.png">
+    </p-header>
 
-  <div>Informe se usuário e senha para ingressar na área restrita</div>
+    <div>Informe se usuário e senha para ingressar na área restrita</div>
 
-  <span>
-    <input id="username" type="text" size="10" pInputText [(ngModel)]="username"/>
-    <label for="username">Usuário</label>
-  </span>
+    <span>
+      <input id="username" type="text" size="10" pInputText [(ngModel)]="form.username" [ngModelOptions]="{standalone: true}"/>
+      <label for="username">Usuário</label>
+    </span>
 
-  <span>
-    <input id="userpass" type="password" pPassword  [(ngModel)]="userpass"/>
-    <label for="userpass">Senha</label>
-  </span>
+    <span>
+      <input id="userpass" type="password" pPassword  [(ngModel)]="form.userpass" [ngModelOptions]="{standalone: true}"/>
+      <label for="userpass">Senha</label>
+    </span>
 
-  <p-footer>
-    <button pButton type="button" label="Entrar" icon="pi pi-check" style="margin-right: .25em" (click)="onClickEnter()"></button>
-  </p-footer>
+    <p-footer>
+      <button pButton type="submit" label="Entrar" icon="pi pi-check" style="margin-right: .25em"></button>
+    </p-footer>
+  </form>
 </p-card>
