@@ -1,12 +1,20 @@
 <h3 class="first">Single Sort</h3>
-<p-table #dt [columns]="cols" [value]="cars"  [paginator]="true" [rows]="3">
+<p-table #dt
+  [columns]="cols"
+  [value]="cars"
+  [paginator]="true"
+  [rows]="3"
+  [rowsPerPageOptions]="[5,10,15,20,50,100,200,500,1000]"
+  [totalRecords]="10"
+  [loading]="loading"
+  [resizableColumns]="true">
     <ng-template pTemplate="caption">
-        <div style="text-align: right">        
+        <div style="text-align: left">
             <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
-            <input type="text" 
-              pInputText size="50" 
-              placeholder="Pesquisar" 
-              (input)="dt.filterGlobal($event.target.value, 'contains')" 
+            <input type="text"
+              pInputText size="50"
+              placeholder="Pesquisar"
+              (input)="dt.filterGlobal($event.target.value, 'contains')"
               style="width:auto">
         </div>
     </ng-template>
@@ -14,10 +22,10 @@
         <tr>
             <th *ngFor="let col of columns" [pSortableColumn]="col.field">
                 {{col.header}}
-                <p-sortIcon 
-                  [field]="col.field" 
-                  ariaLabel="Activate to sort" 
-                  ariaLabelDesc="Activate to sort in descending order" 
+                <p-sortIcon
+                  [field]="col.field"
+                  ariaLabel="Activate to sort"
+                  ariaLabelDesc="Activate to sort in descending order"
                   ariaLabelAsc="Activate to sort in ascending order">
                 </p-sortIcon>
             </th>

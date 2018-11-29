@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { DatatableService } from './datatable.service';
 
+// testes
+import 'primeng/resources/primeng.min.css';
+
 @Component({
   selector: 'app-datatable',
   templateUrl: './datatable.component.html',
@@ -25,9 +28,12 @@ export class DatatableComponent implements OnInit {
     { field: 'descricao', header: 'Descrição' }
   ];
 
+  loading = true;
+
   constructor( private datatableService: DatatableService) { }
 
   ngOnInit() {
+    this.loading = false;
   }
 
   getData() {

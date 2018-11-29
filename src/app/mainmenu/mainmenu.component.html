@@ -1,6 +1,6 @@
 <p-menubar [model]="items">
-  <input type="text" pInputText [(ngModel)]="search" placeholder="Search" (keyup)="searchMenu()">
+  <input class="searchAlign" type="text" pInputText [(ngModel)]="search" placeholder="Search" (keyup)="searchMenu()">
   <span *ngIf="!auth.isLoggedIn()">&nbsp;<button pButton label="Entrar" routerLink="/login" icon="fa fa-sign-in"></button></span>
   <span *ngIf="auth.isLoggedIn()">&nbsp;<button pButton label="Sair" icon="fa fa-sign-out" (click)="auth.logout()"></button></span>
 </p-menubar>
-<div>Usuário logado? {{ auth.isLoggedIn() }}</div>
+<!--<div>Usuário logado? {{ auth.isLoggedIn() }}</div>-->

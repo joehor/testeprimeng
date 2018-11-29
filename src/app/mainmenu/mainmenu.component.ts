@@ -14,6 +14,7 @@ export class MainmenuComponent implements OnInit {
   items: MenuItem[];
   search: string;
 
+  // TODO: adicionar o icone de bloqueio nos menus quando não estiver logado
   ngOnInit() {
     this.items = [
     {
@@ -30,7 +31,7 @@ export class MainmenuComponent implements OnInit {
                       {label: 'Other'},
                   ]
               },
-              {label: 'DataTable', routerLink: ['datatable']},
+              {label: 'DataTable', routerLink: ['datatable'], icon: 'pi pi-lock pi-lg'},
               {label: 'Login', routerLink: ['login']},
               {label: 'Página 404', routerLink: ['**']}
           ]

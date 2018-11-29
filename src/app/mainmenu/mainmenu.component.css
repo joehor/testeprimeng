@@ -1,4 +1,3 @@
-
-.ui-menubar .ui-menuitem-text {
-  background-color: yellow;
+:host /deep/ .ui-menuitem:hover {
+  background-color: aliceblue;
 }

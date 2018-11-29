@@ -1,11 +1,11 @@
-p-footer {
+:host /deep/ p-footer {
     text-align: center;
 }
 
-p-card-footer {
+:host /deep/ p-card-footer {
     text-align: center;
 }
 
-p-card-content {
+:host /deep/ p-card-content {
   padding: 20px;
 }

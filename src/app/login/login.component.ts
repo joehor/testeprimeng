@@ -33,7 +33,11 @@ export class LoginComponent implements OnInit {
     console.log('userpass: ' + this.form.userpass);
     if (this.form.username && this.form.userpass) {
       this.auth.sendToken(this.form.value.username);
-      this.route.navigate(['home']);
+      if (localStorage.getItem('lockUrl') !== 'home') {
+        this.route.navigate([localStorage.getItem('lockUrl')]);
+      } else {
+        this.route.navigate(['home']);
+      }
     }
   }
 

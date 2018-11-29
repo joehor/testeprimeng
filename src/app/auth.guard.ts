@@ -17,6 +17,8 @@ export class AuthGuard implements CanActivate {
       if (this.auth.isLoggedIn()) {
         return true;
       } else {
+        // TODO: pegar o path da rota automaticamente...
+        localStorage.setItem('lockUrl', 'datatable');
         this.route.navigate(['restrict']);
         return false;
       }

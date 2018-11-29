@@ -16,6 +16,7 @@ import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { PanelModule } from 'primeng/panel';
+import { ToastModule } from 'primeng/toast';
 
 // font awesome
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
@@ -61,7 +62,7 @@ const routes: Routes = [
     TableModule, PaginatorModule,
     SlideMenuModule, MenubarModule,
     ButtonModule, InputTextModule, PasswordModule, CardModule,
-    PanelModule,
+    PanelModule, ToastModule,
     // carts.js ...
     ChartModule,
     // fontawesame
