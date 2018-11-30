@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule, FormsModule, FormBuilder, Validators } from '@angular/forms';
 
 // primeng ...
@@ -17,6 +16,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { PanelModule } from 'primeng/panel';
 import { ToastModule } from 'primeng/toast';
+import { KeyFilterModule } from 'primeng/keyfilter';
+import { InputMaskModule } from 'primeng/inputmask';
 
 // font awesome
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
@@ -24,24 +25,17 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 // charts
 import { ChartModule } from 'primeng/chart';
 
+// router
+import { AppRoutingModule } from './app-routing.module';
+
 // componentes internos
 import { DatatableComponent } from './datatable/datatable.component';
 import { MainmenuComponent } from './mainmenu/mainmenu.component';
 import { LoginComponent } from './login/login.component';
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao-encontrada.component';
 import { HomeComponent } from './home/home.component';
-import { AuthService } from './auth.service';
-import { AuthGuard } from './auth.guard';
 import { RestrictAreaComponent } from './restrict-area/restrict-area.component';
-
-const routes: Routes = [
-  { path: '', component: HomeComponent, pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'datatable', component: DatatableComponent, canActivate: [AuthGuard] },
-  { path: 'login', component: LoginComponent },
-  { path: 'restrict', component: RestrictAreaComponent },
-  { path: '**', component: PaginaNaoEncontradaComponent }
-];
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -51,24 +45,24 @@ const routes: Routes = [
     LoginComponent,
     PaginaNaoEncontradaComponent,
     HomeComponent,
-    RestrictAreaComponent
+    RestrictAreaComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule, FormsModule,
+    AppRoutingModule,
     // primeng ...
     TableModule, PaginatorModule,
     SlideMenuModule, MenubarModule,
     ButtonModule, InputTextModule, PasswordModule, CardModule,
-    PanelModule, ToastModule,
+    PanelModule, ToastModule, KeyFilterModule, InputMaskModule,
     // carts.js ...
     ChartModule,
     // fontawesame
-    AngularFontAwesomeModule,
-    // rotas ...
-    RouterModule.forRoot(routes)
+    AngularFontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

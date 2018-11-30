@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { AuthService } from '../auth.service';
+import { ActivatedRoute, UrlSegment } from '@angular/router';
 
 @Component({
   selector: 'app-mainmenu',
@@ -9,7 +10,14 @@ import { AuthService } from '../auth.service';
 })
 export class MainmenuComponent implements OnInit {
 
-  constructor( public auth: AuthService ) { }
+  @Input() recLogado;
+
+  constructor(
+    private auth: AuthService,
+    private activeRoute: ActivatedRoute
+    ) {
+      this.activeRoute.url.subscribe((url: UrlSegment[]) => console.log('Url atual:' + url[0].path));
+     }
 
   items: MenuItem[];
   search: string;
@@ -19,9 +27,13 @@ export class MainmenuComponent implements OnInit {
     this.items = [
     {
         label: 'Home',
-        routerLink: ['/home']
+        routerLink: ['home']
     },
     {
+      label: 'Dashboard',
+      routerLink: ['dashboard']
+  },
+  {
           label: 'Cadastros',
           items: [{
                   label: 'Novo',
@@ -31,17 +43,9 @@ export class MainmenuComponent implements OnInit {
                       {label: 'Other'},
                   ]
               },
-              {label: 'DataTable', routerLink: ['datatable'], icon: 'pi pi-lock pi-lg'},
+              {label: 'DataTable', routerLink: ['datatable']},
               {label: 'Login', routerLink: ['login']},
               {label: 'Página 404', routerLink: ['**']}
-          ]
-       },
-       {
-          label: 'Edit',
-          icon: 'pi pi-fw pi-pencil',
-          items: [
-              {label: 'Delete', icon: 'pi pi-fw pi-trash'},
-              {label: 'Refresh', icon: 'pi pi-fw pi-refresh'}
           ]
        }
     ];
@@ -49,6 +53,14 @@ export class MainmenuComponent implements OnInit {
 
   searchMenu() {
       console.log(this.search);
+  }
+
+  setIconBlock() {
+    if (!this.auth.isLoggedIn) {
+      return '';
+    } else {
+      return 'pi pi-lock pi-lg';
+    }
   }
 
 }
