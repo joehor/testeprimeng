@@ -36,6 +36,7 @@ import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao
 import { HomeComponent } from './home/home.component';
 import { RestrictAreaComponent } from './restrict-area/restrict-area.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ContatoComponent } from './contato/contato.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     PaginaNaoEncontradaComponent,
     HomeComponent,
     RestrictAreaComponent,
-    DashboardComponent
+    DashboardComponent,
+    ContatoComponent
   ],
   imports: [
     BrowserModule,
